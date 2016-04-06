@@ -1,0 +1,1 @@
+$app_list_strings["<option_list_name>"]["<option_name>"] = "<option_value>";

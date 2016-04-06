@@ -1,0 +1,4 @@
+Module Plural,Module Singular,field name,Label,Reportable,Required,Audit,Importable,Search,mass update,Dependent,default value,field help,field comment,type,options,options name value,range search enable
+Opportunities,Opportunity,is_there_an_approved_budget,Is the customer's project funded with an approved budget?,TRUE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE,,,,enum,opp_yes_no_unknown_dom,"yes'=>'yes','no'=>'no','unknown'=>'unknown'",
+Opportunities,Opportunity,delivery_supporting_comments,"Provide comments to support your answers to ""Delivery"" questions",TRUE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE,,,,text,,,
+Opportunities,Opportunity,can_you_articulate_the_business_drivers,Can you articulate the bussiness needs?,TRUE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE,,,,enum,pdfmanager_yes_no,"yes'=>'yes','no'=>'no'",
