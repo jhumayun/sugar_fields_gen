@@ -10,9 +10,11 @@ class FieldFactory
         {
           require_once $field_class_path;
           $field_obj_name = 'field_'.$field_type;
+		  $generate_vardef = TRUE;
 		  foreach($lang_meta as $lang_code => $meta)
 		  {
-			$field = new $field_obj_name($csv_data,$lang_code);
+			$field = new $field_obj_name($csv_data,$lang_code,$generate_vardef);
+			$generate_vardef = FALSE; // generate vardef only once otherwise content will be appended multiple times
 		  }
         }
         elseif(isset($field_type))
