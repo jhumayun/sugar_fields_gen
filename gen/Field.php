@@ -26,7 +26,7 @@ class Field
 		
     protected $lang_code;
 
-    public function __construct($csv_data,$lang_code)
+    public function __construct($csv_data,$lang_code,$generate_vardef=TRUE)
     {
       global $config;
 	  $this->lang_code = $lang_code;
@@ -62,7 +62,10 @@ class Field
       }
 
       $this->init();
-      $this->fill_vardefs();
+	  if($generate_vardef)
+	  {
+		$this->fill_vardefs();
+	  }      
       $this->fill_labels();
     }
 
