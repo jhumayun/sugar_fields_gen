@@ -14,7 +14,7 @@ FieldFactory::init();
 while(! feof($file))
 {
   $csv_data = fgetcsv($file);
-  FieldFactory::create_field($csv_data);
+  FieldFactory::create_field($csv_data,$config['lang_meta']);
 }
 
 fclose($file);

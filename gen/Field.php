@@ -23,14 +23,17 @@ class Field
     protected $vardef_file_path;
     protected $is_dropdown;
     protected $dropdown_file_path;
+		
+    protected $lang_code;
 
-    public function __construct($csv_data)
+    public function __construct($csv_data,$lang_code)
     {
       global $config;
+	  $this->lang_code = $lang_code;
       $this->module_plural = $csv_data[0];
       $this->module_singular = $csv_data[1];
       $this->field_name = $csv_data[2];
-      $this->field_lbl = str_replace('"',"'",$csv_data[3]);
+      $this->field_lbl = str_replace('"',"'",$csv_data[$config['lang_meta'][$this->lang_code]['field_lbl_csv_index']]);
       $this->reportable = $csv_data[4];
       $this->required = $csv_data[5];
       $this->auditable = $csv_data[6];
@@ -43,14 +46,15 @@ class Field
       $this->field_comment = str_replace('"',"'",$csv_data[13]);
       $this->field_type = $csv_data[14];
       $this->options = $csv_data[15];
-      $this->name_value_list = $this->prepare_nv_list($csv_data[16]);
-      p_arr($this->field_name);
-      $this->lbl_file_path = 'output/custom/Extension/modules/'.$this->module_plural.'/Ext/Language/en_us.'.$config['labels_file_name'].'.php';
+      $this->name_value_list = $this->prepare_nv_list($csv_data[$config['lang_meta'][$this->lang_code]['nv_list_csv_index']]);
+      p_arr($this->lang_code.' - '.$this->field_name);
+	  $this->field_len = $csv_data[18];
+      $this->lbl_file_path = 'output/custom/Extension/modules/'.$this->module_plural.'/Ext/Language/'.$this->lang_code.'.'.$config['labels_file_name'].'.php';
       $this->vardef_file_path = 'output/custom/Extension/modules/'.$this->module_plural.'/Ext/Vardefs/'.$config['fields_filename_prefix'].'_'.$this->field_name.'.php';
       if($this->field_type=='enum' || $this->field_type=='multienum')
       {
         $this->is_dropdown = true;
-        $this->dropdown_file_path = 'output/custom/Extension/application/Ext/Language/en_us.'.$config['labels_file_name'].'.php';
+        $this->dropdown_file_path = 'output/custom/Extension/application/Ext/Language/'.$this->lang_code.'.'.$config['labels_file_name'].'.php';
       }
       elseif($this->field_type=='datetime')
       {
@@ -136,6 +140,7 @@ class Field
       $content = str_replace('<field_comment>',$this->field_comment,$content);
       $content = str_replace('<default_value>',$this->default_value,$content);
       $content = str_replace('<field_source>',$config['fields_source'],$content);
+      $content = str_replace('<field_len>',$this->field_len,$content);
       return $content;
     }
 

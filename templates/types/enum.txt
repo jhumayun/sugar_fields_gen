@@ -1,8 +1,5 @@
 $dictionary['<module_singular>']['fields']['<field_name>']['name'] = '<field_name>';
 $dictionary['<module_singular>']['fields']['<field_name>']['vname'] = 'LBL_<field_name_uppercase>';
-$dictionary['<module_singular>']['fields']['<field_name>']['id'] = '<module_plural><field_name>';
-$dictionary['<module_singular>']['fields']['<field_name>']['custom_module'] = '<module_singular>';
-$dictionary['<module_singular>']['fields']['<field_name>']['source'] = '<field_source>';
 $dictionary['<module_singular>']['fields']['<field_name>']['type'] = '<field_type>';
 $dictionary['<module_singular>']['fields']['<field_name>']['reportable'] = <is_reportable>;
 $dictionary['<module_singular>']['fields']['<field_name>']['required'] = <is_required>;
@@ -14,4 +11,5 @@ $dictionary['<module_singular>']['fields']['<field_name>']['help'] = "<field_hel
 $dictionary['<module_singular>']['fields']['<field_name>']['comment'] = "<field_comment>";
 $dictionary['<module_singular>']['fields']['<field_name>']['default_value'] = "<default_value>";
 $dictionary['<module_singular>']['fields']['<field_name>']['duplicate_merge'] = 'disabled';
-$dictionary['<module_singular>']['fields']['<field_name>']['ext1'] = '<field_options>';
+$dictionary['<module_singular>']['fields']['<field_name>']['options'] = '<field_options>';
+$dictionary['<module_singular>']['fields']['<field_name>']['len'] = '<field_len>';

@@ -1,7 +1,7 @@
 <?php
 require_once 'gen/Field.php';
 
-class field_bool extends Field{
+class field_image extends Field{
 
   public function __construct($csv_data,$lang_code)
   {

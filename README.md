@@ -11,3 +11,6 @@ Can generate sugarfields of following types:
 	5- bool (checkbox)
 	6- date
 	7- datetime
+	8- image
+	9- int
+	10- varchar
